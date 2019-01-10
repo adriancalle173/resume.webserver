@@ -15,7 +15,7 @@ module.exports = {
 
         let lettersWeight = [0, 0, 0, 0];
 
-        inputSplit.forEach(function(rule, index){
+        inputSplit.forEach(function(rule, index){ // O(N4)
             if(index>1){
                 var ruleSplit = rule.split('');
                 ruleSplit.shift(); // Remove letter from the rule
@@ -42,7 +42,7 @@ module.exports = {
         return lettersWeight;
 
     },
-    fillMatrix: function(lettersWeight){ // N2
+    fillMatrix: function(lettersWeight){ // O(N2)
 
         let matrix = {
             '0': ['-', '-', '-', '-'],
@@ -69,6 +69,7 @@ module.exports = {
 }
 
 function compareLetters(lettersWeight, letter1, letter2){
+
     if(letter1 === letter2){
         return '=';
     }
@@ -76,4 +77,5 @@ function compareLetters(lettersWeight, letter1, letter2){
         return '>';
     }
     return '<';
+
 }
